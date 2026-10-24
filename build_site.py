@@ -8,7 +8,7 @@ head='''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Elite Food Distributor: Latin snacks, juices and candy distribution. Bemar Snacks, La Molienda, Pelly, Petit.">
-<link rel="icon" href="img/logo-mark.jpg">
+<link rel="icon" href="img/logo-elite.jpg">
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 '''
 i=h.index('</style>')+len('</style>')
