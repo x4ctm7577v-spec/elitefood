@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Elite Food Distributor: Latin snacks, juices and candy distribution. Bemar Snacks, La Molienda, Pelly, Petit.">
-<link rel="icon" href="img/logo-elite-mark.png?v=1792828669">
+<link rel="icon" href="img/logo-elite-mark.png?v=1792830078">
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Elite Food Distributor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,6 +181,17 @@ section{scroll-margin-top:80px}
 .cl img{position:absolute;inset:16%;width:68%;height:68%;object-fit:contain}
 @media (max-width:980px){.cl-grid{grid-template-columns:repeat(4,1fr)}}
 @media (max-width:560px){.cl-grid{grid-template-columns:repeat(3,1fr);gap:10px}}
+.work{background:var(--ivory);border-top:1px solid var(--line)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px;grid-auto-flow:dense}
+.gx{margin:0;overflow:hidden;border:1px solid var(--line);background:#fff;min-width:0}
+.gx img,.gx video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gx:hover img{transform:scale(1.04)}
+.gx.vid{grid-column:span 2;grid-row:span 2}
+.gx.w{grid-column:span 2}
+.gx.t{grid-row:span 2}
+.gx.sq{grid-column:span 2;grid-row:span 2}
+@media (max-width:860px){.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}}
+@media (prefers-reduced-motion:reduce){.gx:hover img{transform:none}}
 /* Pasos */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);counter-reset:s}
 .steps li{list-style:none;padding:34px 30px;display:grid;gap:10px;counter-increment:s;align-content:start}
@@ -220,7 +231,7 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="Elite Food Distributor, inicio">
-      <img class="logo-img" src="img/logo-elite-food.png?v=1792828669" alt="Elite Food Distributor" width="240" height="46">
+      <img class="logo-img" src="img/logo-elite-food.png?v=1792830078" alt="Elite Food Distributor" width="240" height="46">
     </a>
     <button class="menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -228,6 +239,7 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
     <nav class="nav" id="nav">
       <a href="#nosotros"><span class="es">Nosotros</span><span class="en">About</span></a>
       <a href="#servicios"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a href="#trabajo"><span class="es">Trabajo</span><span class="en">Our work</span></a>
       <a href="#clientes"><span class="es">Clientes</span><span class="en">Clients</span></a>
       <a href="#marcas"><span class="es">Marcas</span><span class="en">Brands</span></a>
       <a href="#productos"><span class="es">Productos</span><span class="en">Products</span></a>
@@ -254,12 +266,12 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
       </div>
     </div>
     <div class="stage" aria-label="Productos de Bemar, Petit y La Molienda">
-      <img class="s1" src="img/petit-mango-1l.webp?v=1792828669" alt="Néctar Petit de mango, 1 litro">
-      <img class="s2" src="img/trifongo.webp?v=1792828669" alt="TriFongo Snacks de Bemar">
-      <img class="s3" src="img/mofongo.webp?v=1792828669" alt="Mofongo Party Mix de Bemar">
-      <img class="s4" src="img/petit-pina-caja.webp?v=1792828669" alt="Néctar Petit de piña en cajita">
-      <img class="s5" src="img/tostones-sweet.webp?v=1792828669" alt="Tostones maduros de Bemar">
-      <img class="s6" src="img/lm-comalito-coco.webp?v=1792828669" alt="Comalito de coco La Molienda">
+      <img class="s1" src="img/petit-mango-1l.webp?v=1792830078" alt="Néctar Petit de mango, 1 litro">
+      <img class="s2" src="img/trifongo.webp?v=1792830078" alt="TriFongo Snacks de Bemar">
+      <img class="s3" src="img/mofongo.webp?v=1792830078" alt="Mofongo Party Mix de Bemar">
+      <img class="s4" src="img/petit-pina-caja.webp?v=1792830078" alt="Néctar Petit de piña en cajita">
+      <img class="s5" src="img/tostones-sweet.webp?v=1792830078" alt="Tostones maduros de Bemar">
+      <img class="s6" src="img/lm-comalito-coco.webp?v=1792830078" alt="Comalito de coco La Molienda">
     </div>
   </div>
 </section>
@@ -271,10 +283,10 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
 <section class="sec about" id="nosotros">
   <div class="wrap">
     <div class="about-img">
-      <div class="cell"><img src="img/trifongo.webp?v=1792828669" alt="TriFongo Snacks de Bemar"></div>
-      <div class="cell"><img src="img/petit-mango-1l.webp?v=1792828669" alt="Néctar Petit de mango"></div>
-      <div class="cell"><img src="img/lm-comalito-coco.webp?v=1792828669" alt="Comalito de coco La Molienda"></div>
-      <div class="cell"><img src="img/pelly-jamon.webp?v=1792828669" alt="Pelly Jamón Salados"></div>
+      <div class="cell"><img src="img/trifongo.webp?v=1792830078" alt="TriFongo Snacks de Bemar"></div>
+      <div class="cell"><img src="img/petit-mango-1l.webp?v=1792830078" alt="Néctar Petit de mango"></div>
+      <div class="cell"><img src="img/lm-comalito-coco.webp?v=1792830078" alt="Comalito de coco La Molienda"></div>
+      <div class="cell"><img src="img/pelly-jamon.webp?v=1792830078" alt="Pelly Jamón Salados"></div>
       <div class="tag"><span class="es">Del almacén a su exhibidor</span><span class="en">From our warehouse to your shelf</span></div>
     </div>
     <div class="about-txt">
@@ -344,20 +356,39 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
       <p class="lead"><span class="es">Estaciones de servicio y supermercados a los que les damos servicio todas las semanas.</span><span class="en">Service stations and supermarkets we serve every week.</span></p>
     </div>
     <div class="cl-grid">
-      <div class="cl"><img src="img/client-bp.webp?v=1792828669" alt="BP" loading="lazy"></div>
-      <div class="cl"><img src="img/client-chevron.webp?v=1792828669" alt="Chevron" loading="lazy"></div>
-      <div class="cl"><img src="img/client-shell.webp?v=1792828669" alt="Shell" loading="lazy"></div>
-      <div class="cl"><img src="img/client-marathon.webp?v=1792828669" alt="Marathon" loading="lazy"></div>
-      <div class="cl"><img src="img/client-sunoco.webp?v=1792828669" alt="Sunoco" loading="lazy"></div>
-      <div class="cl"><img src="img/client-amoco.webp?v=1792828669" alt="Amoco" loading="lazy"></div>
-      <div class="cl"><img src="img/client-citgo.webp?v=1792828669" alt="Citgo" loading="lazy"></div>
-      <div class="cl"><img src="img/client-seven-eleven.webp?v=1792828669" alt="7-Eleven" loading="lazy"></div>
-      <div class="cl"><img src="img/client-orion.webp?v=1792828669" alt="Orion Fuels" loading="lazy"></div>
-      <div class="cl"><img src="img/client-onthe-run.webp?v=1792828669" alt="On the Run" loading="lazy"></div>
-      <div class="cl"><img src="img/client-food-star.webp?v=1792828669" alt="Food Star Supermarket" loading="lazy"></div>
-      <div class="cl"><img src="img/client-bravo.webp?v=1792828669" alt="Bravo Supermarkets" loading="lazy"></div>
-      <div class="cl"><img src="img/client-diaz.webp?v=1792828669" alt="Diaz Supermarket" loading="lazy"></div>
-      <div class="cl"><img src="img/client-sabor-tropical.webp?v=1792828669" alt="Sabor Tropical Supermarket" loading="lazy"></div>
+      <div class="cl"><img src="img/client-bp.webp?v=1792830078" alt="BP" loading="lazy"></div>
+      <div class="cl"><img src="img/client-chevron.webp?v=1792830078" alt="Chevron" loading="lazy"></div>
+      <div class="cl"><img src="img/client-shell.webp?v=1792830078" alt="Shell" loading="lazy"></div>
+      <div class="cl"><img src="img/client-marathon.webp?v=1792830078" alt="Marathon" loading="lazy"></div>
+      <div class="cl"><img src="img/client-sunoco.webp?v=1792830078" alt="Sunoco" loading="lazy"></div>
+      <div class="cl"><img src="img/client-amoco.webp?v=1792830078" alt="Amoco" loading="lazy"></div>
+      <div class="cl"><img src="img/client-citgo.webp?v=1792830078" alt="Citgo" loading="lazy"></div>
+      <div class="cl"><img src="img/client-seven-eleven.webp?v=1792830078" alt="7-Eleven" loading="lazy"></div>
+      <div class="cl"><img src="img/client-orion.webp?v=1792830078" alt="Orion Fuels" loading="lazy"></div>
+      <div class="cl"><img src="img/client-onthe-run.webp?v=1792830078" alt="On the Run" loading="lazy"></div>
+      <div class="cl"><img src="img/client-food-star.webp?v=1792830078" alt="Food Star Supermarket" loading="lazy"></div>
+      <div class="cl"><img src="img/client-bravo.webp?v=1792830078" alt="Bravo Supermarkets" loading="lazy"></div>
+      <div class="cl"><img src="img/client-diaz.webp?v=1792830078" alt="Diaz Supermarket" loading="lazy"></div>
+      <div class="cl"><img src="img/client-sabor-tropical.webp?v=1792830078" alt="Sabor Tropical Supermarket" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec work" id="trabajo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick"><span class="es">Nuestro trabajo</span><span class="en">Our work</span></div>
+      <h2 class="h2"><span class="es">Así quedan las tiendas <em>que atendemos</em></span><span class="en">This is how the stores <em>we serve</em> look</span></h2>
+      <p class="lead"><span class="es">Fotos reales de exhibidores surtidos y acomodados por nuestro equipo.</span><span class="en">Real photos of displays stocked and set up by our team.</span></p>
+    </div>
+    <div class="gal">
+      <figure class="gx vid"><video src="img/tienda.mp4" poster="img/tienda-poster.jpg?v=1792830078" autoplay muted loop playsinline preload="metadata" aria-label="Video de un exhibidor surtido por Elite Food"></video></figure>
+      <figure class="gx t"><img src="img/tienda-2.webp?v=1792830078" alt="Góndola con dulces de La Molienda arriba y snacks de Bemar" loading="lazy"></figure>
+      <figure class="gx t"><img src="img/tienda-3.webp?v=1792830078" alt="Estante de tienda surtido con TriFongo, Mofongo, tostones y chicharrones" loading="lazy"></figure>
+      <figure class="gx t"><img src="img/tienda-4.webp?v=1792830078" alt="Estante surtido con tostones, Mofongo, TriFongo y chicharrones Bemar" loading="lazy"></figure>
+      <figure class="gx t"><img src="img/tienda-6.webp?v=1792830078" alt="Display negro de Elite Food junto a la entrada de la tienda" loading="lazy"></figure>
+      <figure class="gx w"><img src="img/tienda-1.webp?v=1792830078" alt="Exhibidor de Bemar con chicharrones, tostones, Mangú, TriFongo y Mofongo" loading="lazy"></figure>
+      <figure class="gx w"><img src="img/tienda-5.webp?v=1792830078" alt="Exhibidor largo en tienda On the Run, con dulces arriba y snacks Bemar" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -370,19 +401,19 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
     </div>
     <div class="brands">
       <button class="brand" data-go="Bemar Snacks" style="--a:var(--bemar);--tint:#fdf1ee">
-        <div class="bimg"><img src="img/trifongo.webp?v=1792828669" alt=""><img src="img/plantain-lime.webp?v=1792828669" alt=""><img src="img/bemar-chicharron-chili-lime.webp?v=1792828669" alt=""></div>
+        <div class="bimg"><img src="img/trifongo.webp?v=1792830078" alt=""><img src="img/plantain-lime.webp?v=1792830078" alt=""><img src="img/bemar-chicharron-chili-lime.webp?v=1792830078" alt=""></div>
         <div class="binfo"><h3>Bemar Snacks</h3><p><span class="es">Platanitos, tostones, chicharrones y mezclas.</span><span class="en">Plantain chips, tostones, pork rinds and mixes.</span></p><span class="more"><span class="es">14 productos →</span><span class="en">14 products →</span></span></div>
       </button>
       <button class="brand" data-go="La Molienda" style="--a:var(--molienda);--tint:#fbf3ea">
-        <div class="bimg"><img src="img/lm-comalito-cacahuate.webp?v=1792828669" alt=""><img src="img/lm-comalito-coco.webp?v=1792828669" alt=""><img src="img/lm-comalito-mixnut.webp?v=1792828669" alt=""></div>
+        <div class="bimg"><img src="img/lm-comalito-cacahuate.webp?v=1792830078" alt=""><img src="img/lm-comalito-coco.webp?v=1792830078" alt=""><img src="img/lm-comalito-mixnut.webp?v=1792830078" alt=""></div>
         <div class="binfo"><h3>La Molienda</h3><p><span class="es">Comalitos, cocadas y dulces tradicionales mexicanos.</span><span class="en">Nut patties, coconut candy and traditional Mexican sweets.</span></p><span class="more"><span class="es">11 productos →</span><span class="en">11 products →</span></span></div>
       </button>
       <button class="brand" data-go="Pelly" style="--a:var(--pelly);--tint:#fdf0f4">
-        <div class="bimg"><img src="img/pelly-jamon.webp?v=1792828669" alt=""></div>
+        <div class="bimg"><img src="img/pelly-jamon.webp?v=1792830078" alt=""></div>
         <div class="binfo"><h3>Pelly</h3><p><span class="es">Snacks salados sabor a jamón.</span><span class="en">Salty ham-flavored snacks.</span></p><span class="more"><span class="es">1 producto →</span><span class="en">1 product →</span></span></div>
       </button>
       <button class="brand" data-go="Petit" style="--a:var(--petit);--tint:#fef3ef">
-        <div class="bimg"><img src="img/petit-mango-1l.webp?v=1792828669" alt=""><img src="img/petit-pina-caja.webp?v=1792828669" alt=""><img src="img/petit-durazno-lata.webp?v=1792828669" alt=""></div>
+        <div class="bimg"><img src="img/petit-mango-1l.webp?v=1792830078" alt=""><img src="img/petit-pina-caja.webp?v=1792830078" alt=""><img src="img/petit-durazno-lata.webp?v=1792830078" alt=""></div>
         <div class="binfo"><h3>Petit</h3><p><span class="es">Néctares con vitamina C en cajita, lata y litro.</span><span class="en">Nectars with vitamin C in box, can and liter.</span></p><span class="more"><span class="es">15 productos →</span><span class="en">15 products →</span></span></div>
       </button>
     </div>
@@ -439,7 +470,7 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
 
 <footer>
   <div class="wrap">
-    <img class="flogo" src="img/logo-elite-food.png?v=1792828669" alt="Elite Food Distributor" width="280" height="54">
+    <img class="flogo" src="img/logo-elite-food.png?v=1792830078" alt="Elite Food Distributor" width="280" height="54">
     <div class="fcol"><p class="fbrands">Bemar Snacks · La Molienda · Pelly · Petit</p><p>© 2026 Elite Food Distributor</p></div>
   </div>
 </footer>
@@ -503,7 +534,7 @@ function render(){
   tabs.innerHTML=BRANDS.map(b=>{const n=b==="Todas"?P.length:P.filter(p=>p[0]===b).length;
     return `<button type="button" data-b="${esc(b)}" aria-pressed="${b===current}">${esc(tr(b))}<span>${n}</span></button>`}).join('');
   const list=current==="Todas"?P:P.filter(p=>p[0]===current);
-  grid.innerHTML=list.map(p=>`<article class="pc" style="--a:${COLOR[p[0]]}"><figure><img src="img/${p[2]}?v=1792828669" alt="${esc(tr(p[3]))}" loading="lazy"><span class="bdot">${esc(p[0])}</span></figure><div class="pi"><span class="grp">${esc(tr(p[1]))}</span><h4>${esc(tr(p[3]))}</h4><span class="sz">${esc(tr(p[4]))}</span><span class="pz">${PRICE[p[2]]?`<b>$${PRICE[p[2]]}</b> ${L==="en"?"each":"c/u"}`:(L==="en"?"Price: ask us":"Precio: consultar")}</span></div></article>`).join('');
+  grid.innerHTML=list.map(p=>`<article class="pc" style="--a:${COLOR[p[0]]}"><figure><img src="img/${p[2]}?v=1792830078" alt="${esc(tr(p[3]))}" loading="lazy"><span class="bdot">${esc(p[0])}</span></figure><div class="pi"><span class="grp">${esc(tr(p[1]))}</span><h4>${esc(tr(p[3]))}</h4><span class="sz">${esc(tr(p[4]))}</span><span class="pz">${PRICE[p[2]]?`<b>$${PRICE[p[2]]}</b> ${L==="en"?"each":"c/u"}`:(L==="en"?"Price: ask us":"Precio: consultar")}</span></div></article>`).join('');
 }
 tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;current=b.dataset.b;try{localStorage.setItem('ef-tab',current)}catch(e){}render();});
 document.querySelectorAll('.brand').forEach(el=>el.addEventListener('click',()=>{current=el.dataset.go;render();document.getElementById('productos').scrollIntoView();}));
