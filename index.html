@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Elite Food Distributor: Latin snacks, juices and candy distribution. Bemar Snacks, La Molienda, Pelly, Petit.">
+<link rel="icon" href="img/logo-mark.jpg">
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Elite Food Distributor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,14 +14,15 @@
 /* Layout: sitio corporativo de una sola página — cabecera fija, portada con bodegón de productos, marcas, servicios, catálogo filtrable, pasos y contacto. Look único claro: blanco con oro. */
 :root{
   --bg:#ffffff;
-  --ivory:#fbf7ee;
-  --ink:#1f1b15;
-  --muted:#73685a;
-  --line:#ece3d1;
-  --gold:#a87a24;
-  --gold-d:#7f5b1d;
-  --gold-l:#e4cf9c;
-  --gold-grad:linear-gradient(100deg,#7a561a 0%,#c99a3e 34%,#a87a24 56%,#d8ad55 72%,#7f5b1d 100%);
+  --ivory:#f3f5fa;
+  --ink:#0e1d36;
+  --muted:#5b6578;
+  --line:#e1e6ef;
+  --gold:#d3172e;
+  --gold-d:#14284b;
+  --gold-l:#cdd6e6;
+  --gold-grad:linear-gradient(100deg,#0e1d36 0%,#1d3a6e 55%,#12264a 100%);
+  --red-grad:linear-gradient(100deg,#a90f25 0%,#e3243c 60%,#c4122b 100%);
   --bemar:#c4161c; --pelly:#e2457a; --molienda:#8a4b23; --petit:#d42a2a;
   --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -38,8 +40,8 @@ a{color:inherit}
 .h2 em{font-style:italic;font-weight:500;color:var(--gold)}
 .lead{color:var(--muted);font-size:1.08rem;max-width:58ch;margin:0}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--gold);transition:background .2s,color .2s,transform .2s}
-.btn-gold{background:var(--gold-grad);color:#fff;border-color:transparent;box-shadow:0 10px 24px -14px rgba(122,86,26,.8)}
-.btn-gold:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold-grad);color:#fff;border-color:transparent;box-shadow:0 10px 24px -14px rgba(14,29,54,.6)}
+.btn-gold:hover{transform:translateY(-2px);background:var(--red-grad)}
 .btn-line{color:var(--gold-d);background:#fff}
 .btn-line:hover{background:var(--ivory)}
 
@@ -49,6 +51,7 @@ html:not([data-l="en"]) .en{display:none!important}
 .lang button{font:inherit;font-size:.78rem;font-weight:700;letter-spacing:.12em;padding:7px 10px;border:0;background:#fff;color:var(--muted);cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--gold);color:#fff}
 @media (max-width:860px){.lang{align-self:center;margin-top:14px}}
+.mark-img{width:48px;height:48px;border-radius:10px;object-fit:cover;box-shadow:0 4px 12px -6px rgba(14,29,54,.5)}
 /* Cabecera */
 .top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
@@ -61,7 +64,7 @@ html:not([data-l="en"]) .en{display:none!important}
 .nav a{text-decoration:none;font-weight:500;font-size:.93rem;color:var(--ink);position:relative;padding-block:6px}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
 .nav a:hover::after{transform:scaleX(1)}
-.nav .btn{padding:10px 18px;font-size:.88rem}
+.nav .btn{padding:10px 18px;font-size:.88rem;color:#fff}
 .nav .btn::after{display:none}
 .menu{display:none;background:none;border:1px solid var(--line);width:44px;height:44px;cursor:pointer;color:var(--ink)}
 .menu svg{width:22px;height:22px}
@@ -74,11 +77,11 @@ html:not([data-l="en"]) .en{display:none!important}
 }
 
 /* Portada */
-.hero{background:radial-gradient(60% 80% at 78% 40%,#fbf0d6 0%,rgba(255,255,255,0) 70%),var(--bg);border-bottom:1px solid var(--line);overflow:hidden}
+.hero{background:radial-gradient(60% 80% at 78% 40%,#e8eef9 0%,rgba(255,255,255,0) 70%),var(--bg);border-bottom:1px solid var(--line);overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-block:64px 72px}
 .hero-txt{display:grid;gap:22px;min-width:0}
 .hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;margin:0;letter-spacing:-.015em;text-wrap:balance}
-.hero h1 .hl{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;font-weight:600}
+.hero h1 .hl{background:var(--red-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;font-weight:600}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
 .stats{display:flex;flex-wrap:wrap;gap:0;margin-top:14px;border-top:1px solid var(--line);padding-top:20px}
 .stats div{padding-right:28px;margin-right:28px;border-right:1px solid var(--line)}
@@ -86,14 +89,14 @@ html:not([data-l="en"]) .en{display:none!important}
 .stats b{display:block;font-family:var(--display);font-weight:700;font-size:2rem;line-height:1;color:var(--gold-d);font-variant-numeric:tabular-nums}
 .stats span{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .stage{position:relative;aspect-ratio:1/0.92;max-width:100%;min-width:0}
-.stage::before{content:"";position:absolute;left:8%;right:8%;bottom:4%;height:9%;border-radius:50%;background:radial-gradient(closest-side,rgba(120,85,25,.28),transparent)}
-.stage img{position:absolute;object-fit:contain;filter:drop-shadow(0 16px 20px rgba(70,50,15,.25));background:#fff;border-radius:6px;transition:transform .5s ease}
+.stage::before{content:"";position:absolute;left:8%;right:8%;bottom:4%;height:9%;border-radius:50%;background:radial-gradient(closest-side,rgba(14,29,54,.25),transparent)}
+.stage img{position:absolute;object-fit:contain;filter:drop-shadow(0 16px 20px rgba(14,29,54,.28));transition:transform .5s ease}
 .stage img.s1{left:37%;top:2%;height:84%;z-index:5}
 .stage img.s2{left:10%;top:18%;height:62%;z-index:4;transform:rotate(-8deg)}
 .stage img.s3{left:63%;top:18%;height:62%;z-index:4;transform:rotate(8deg)}
-.stage img.s4{left:0%;top:50%;height:42%;z-index:6;transform:rotate(-12deg);background:transparent}
-.stage img.s5{left:76%;top:46%;height:44%;z-index:6;transform:rotate(10deg);background:transparent}
-.stage img.s6{left:33%;top:70%;height:28%;z-index:7;border-radius:50%;background:transparent}
+.stage img.s4{left:0%;top:50%;height:42%;z-index:6;transform:rotate(-12deg)}
+.stage img.s5{left:76%;top:46%;height:44%;z-index:6;transform:rotate(10deg)}
+.stage img.s6{left:33%;top:70%;height:28%;z-index:7}
 .stage:hover img.s2{transform:rotate(-11deg) translateY(-6px)}
 .stage:hover img.s3{transform:rotate(11deg) translateY(-6px)}
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 48px}.stage{max-width:520px;width:100%;margin:0 auto}}
@@ -111,7 +114,7 @@ section{scroll-margin-top:80px}
 /* Nosotros */
 .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .about-img{position:relative;aspect-ratio:4/3.2;max-width:100%;background:var(--ivory);border:1px solid var(--line);overflow:hidden}
-.about-img img{position:absolute;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(60,40,10,.2));background:#fff;border-radius:4px}
+.about-img img{position:absolute;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(14,29,54,.22))}
 .about-img img.a1{left:8%;top:12%;height:70%}
 .about-img img.a2{left:38%;top:8%;height:56%;z-index:2}
 .about-img img.a3{left:62%;top:22%;height:66%}
@@ -135,10 +138,10 @@ section{scroll-margin-top:80px}
 /* Marcas */
 .brands{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .brand{border:1px solid var(--line);background:#fff;text-decoration:none;display:flex;flex-direction:column;transition:border-color .25s,transform .25s,box-shadow .25s;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0}
-.brand:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(122,86,26,.55)}
+.brand:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(14,29,54,.4)}
 .brand .bimg{position:relative;aspect-ratio:1/0.82;background:var(--tint);border-bottom:1px solid var(--line);overflow:hidden;max-width:100%}
 .brand .bimg::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--a)}
-.brand .bimg img{position:absolute;bottom:10%;height:72%;width:auto;object-fit:contain;background:#fff;border-radius:4px;filter:drop-shadow(0 10px 14px rgba(60,40,10,.22))}
+.brand .bimg img{position:absolute;bottom:10%;height:72%;width:auto;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(14,29,54,.22))}
 .brand .bimg img:nth-child(1){left:50%;transform:translateX(-50%);z-index:2}
 .brand .bimg img:nth-child(2){left:8%;height:58%;transform:rotate(-7deg)}
 .brand .bimg img:nth-child(3){right:8%;height:58%;transform:rotate(7deg)}
@@ -158,7 +161,7 @@ section{scroll-margin-top:80px}
 .tabs button span{opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
 .pc{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
-.pc:hover{border-color:var(--gold-l);box-shadow:0 14px 28px -20px rgba(122,86,26,.5)}
+.pc:hover{border-color:var(--gold-l);box-shadow:0 14px 28px -20px rgba(14,29,54,.35)}
 .pc figure{margin:0;position:relative;aspect-ratio:1/1;border-bottom:1px solid var(--line);max-width:100%;background:#fff}
 .pc figure img{position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:contain}
 .pc .bdot{position:absolute;left:10px;top:10px;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--a);padding:3px 8px}
@@ -181,7 +184,7 @@ section{scroll-margin-top:80px}
 @media (max-width:860px){.steps{grid-template-columns:1fr}.steps li+li{border-left:0;border-top:1px solid var(--line)}}
 
 /* Contacto */
-.contact{background:radial-gradient(60% 90% at 50% 100%,#fbf0d6 0%,rgba(255,255,255,0) 70%),var(--ivory);border-top:1px solid var(--line)}
+.contact{background:radial-gradient(60% 90% at 50% 100%,#e8eef9 0%,rgba(255,255,255,0) 70%),var(--ivory);border-top:1px solid var(--line)}
 .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .contact-txt{display:grid;gap:18px;min-width:0}
 .cards{display:grid;gap:14px}
@@ -192,9 +195,13 @@ section{scroll-margin-top:80px}
 .cc b.todo{color:var(--gold);font-weight:500;font-style:italic;user-select:auto}
 @media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--line);background:#fff}
+footer{background:#05070c;color:#c9d1e0}
+footer .flogo{width:180px;height:180px;object-fit:cover;border-radius:12px}
+footer .fcol{display:grid;gap:6px;text-align:right}
+footer .fbrands{font-family:var(--display);font-size:1.15rem;color:#fff}
+@media (max-width:600px){footer .wrap{justify-content:center;text-align:center}footer .fcol{text-align:center}}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-block:28px}
-footer p{margin:0;color:var(--muted);font-size:.85rem}
+footer p{margin:0;color:#9aa6bc;font-size:.85rem}
 </style>
 </head>
 <body>
@@ -203,7 +210,7 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="Elite Food Distributor, inicio">
-      <span class="mark" aria-hidden="true">EF</span>
+      <img class="mark-img" src="img/logo-mark.jpg" alt="" width="48" height="48">
       <span><b>Elite Food</b><small>Distributor</small></span>
     </a>
     <button class="menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
@@ -237,12 +244,12 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
       </div>
     </div>
     <div class="stage" aria-label="Productos de Bemar, Petit y La Molienda">
-      <img class="s1" src="img/petit-mango-1l.jpg" alt="Néctar Petit de mango, 1 litro">
-      <img class="s2" src="img/trifongo.jpg" alt="TriFongo Snacks de Bemar">
-      <img class="s3" src="img/mofongo.jpg" alt="Mofongo Party Mix de Bemar">
-      <img class="s4" src="img/petit-pina-caja.png" alt="Néctar Petit de piña en cajita">
-      <img class="s5" src="img/tostones-sweet.png" alt="Tostones maduros de Bemar">
-      <img class="s6" src="img/lm-comalito-coco.jpg" alt="Comalito de coco La Molienda">
+      <img class="s1" src="img/petit-mango-1l.webp" alt="Néctar Petit de mango, 1 litro">
+      <img class="s2" src="img/trifongo.webp" alt="TriFongo Snacks de Bemar">
+      <img class="s3" src="img/mofongo.webp" alt="Mofongo Party Mix de Bemar">
+      <img class="s4" src="img/petit-pina-caja.webp" alt="Néctar Petit de piña en cajita">
+      <img class="s5" src="img/tostones-sweet.webp" alt="Tostones maduros de Bemar">
+      <img class="s6" src="img/lm-comalito-coco.webp" alt="Comalito de coco La Molienda">
     </div>
   </div>
 </section>
@@ -254,9 +261,9 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
 <section class="sec about" id="nosotros">
   <div class="wrap">
     <div class="about-img">
-      <img class="a1" src="img/plantain-sweet.jpg" alt="Platanitos dulces Bemar">
-      <img class="a2" src="img/petit-guayaba-1l.jpg" alt="Néctar Petit de guayaba">
-      <img class="a3" src="img/bemar-chicharron-seasoned.jpg" alt="Chicharrón sazonado Bemar">
+      <img class="a1" src="img/plantain-sweet.webp" alt="Platanitos dulces Bemar">
+      <img class="a2" src="img/petit-guayaba-1l.webp" alt="Néctar Petit de guayaba">
+      <img class="a3" src="img/bemar-chicharron-seasoned.webp" alt="Chicharrón sazonado Bemar">
       <div class="tag"><span class="es">Del almacén a su exhibidor</span><span class="en">From our warehouse to your shelf</span></div>
     </div>
     <div class="about-txt">
@@ -308,19 +315,19 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
     </div>
     <div class="brands">
       <button class="brand" data-go="Bemar Snacks" style="--a:var(--bemar);--tint:#fdf1ee">
-        <div class="bimg"><img src="img/trifongo.jpg" alt=""><img src="img/plantain-lime.jpg" alt=""><img src="img/bemar-chicharron-chili-lime.jpg" alt=""></div>
+        <div class="bimg"><img src="img/trifongo.webp" alt=""><img src="img/plantain-lime.webp" alt=""><img src="img/bemar-chicharron-chili-lime.webp" alt=""></div>
         <div class="binfo"><h3>Bemar Snacks</h3><p><span class="es">Platanitos, tostones, chicharrones y mezclas.</span><span class="en">Plantain chips, tostones, pork rinds and mixes.</span></p><span class="more"><span class="es">14 productos →</span><span class="en">14 products →</span></span></div>
       </button>
       <button class="brand" data-go="La Molienda" style="--a:var(--molienda);--tint:#fbf3ea">
-        <div class="bimg"><img src="img/lm-comalito-cacahuate.jpg" alt=""><img src="img/lm-comalito-coco.jpg" alt=""><img src="img/lm-comalito-mixnut.jpg" alt=""></div>
+        <div class="bimg"><img src="img/lm-comalito-cacahuate.webp" alt=""><img src="img/lm-comalito-coco.webp" alt=""><img src="img/lm-comalito-mixnut.webp" alt=""></div>
         <div class="binfo"><h3>La Molienda</h3><p><span class="es">Comalitos, cocadas y dulces tradicionales mexicanos.</span><span class="en">Nut patties, coconut candy and traditional Mexican sweets.</span></p><span class="more"><span class="es">11 productos →</span><span class="en">11 products →</span></span></div>
       </button>
       <button class="brand" data-go="Pelly" style="--a:var(--pelly);--tint:#fdf0f4">
-        <div class="bimg"><img src="img/pelly-jamon.jpg" alt=""></div>
+        <div class="bimg"><img src="img/pelly-jamon.webp" alt=""></div>
         <div class="binfo"><h3>Pelly</h3><p><span class="es">Snacks salados sabor a jamón.</span><span class="en">Salty ham-flavored snacks.</span></p><span class="more"><span class="es">1 producto →</span><span class="en">1 product →</span></span></div>
       </button>
       <button class="brand" data-go="Petit" style="--a:var(--petit);--tint:#fef3ef">
-        <div class="bimg"><img src="img/petit-mango-1l.jpg" alt=""><img src="img/petit-pina-caja.png" alt=""><img src="img/petit-durazno-lata.png" alt=""></div>
+        <div class="bimg"><img src="img/petit-mango-1l.webp" alt=""><img src="img/petit-pina-caja.webp" alt=""><img src="img/petit-durazno-lata.webp" alt=""></div>
         <div class="binfo"><h3>Petit</h3><p><span class="es">Néctares con vitamina C en cajita, lata y litro.</span><span class="en">Nectars with vitamin C in box, can and liter.</span></p><span class="more"><span class="es">15 productos →</span><span class="en">15 products →</span></span></div>
       </button>
     </div>
@@ -381,57 +388,56 @@ footer p{margin:0;color:var(--muted);font-size:.85rem}
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#inicio"><span class="mark" aria-hidden="true">EF</span><span><b>Elite Food</b><small>Distributor</small></span></a>
-    <p>Bemar Snacks · La Molienda · Pelly · Petit</p>
-    <p>© 2026 Elite Food Distributor</p>
+    <img class="flogo" src="img/logo-elite.jpg" alt="Elite Food Distributor · Snacks · Drinks" width="220" height="220">
+    <div class="fcol"><p class="fbrands">Bemar Snacks · La Molienda · Pelly · Petit</p><p>© 2026 Elite Food Distributor</p></div>
   </div>
 </footer>
 
 <script>
 const P=[
-["Bemar Snacks","Chicharrones","bemar-chicharron-seasoned.jpg","Chicharrón Sazonado","3 oz (85 g)"],
-["Bemar Snacks","Chicharrones","bemar-chicharron-chili-lime.jpg","Chicharrón Chile y Limón","3 oz (85 g)"],
-["Bemar Snacks","Chicharrones","bemar-cracklin.jpg","Pork Cracklin","3 oz (85 g)"],
-["Bemar Snacks","Plantain Chips","plantain-salted.jpg","Platanitos Salados","2.5 oz"],
-["Bemar Snacks","Plantain Chips","plantain-sweet.jpg","Platanitos Dulces","2.5 oz"],
-["Bemar Snacks","Plantain Chips","plantain-lime.jpg","Platanitos con Limón","2.5 oz"],
-["Bemar Snacks","Plantain Chips","plantain-garlic.jpg","Platanitos con Ajo","2.5 oz"],
-["Bemar Snacks","Tostones","tostones-salted.png","Tostones Salados","Sin gluten"],
-["Bemar Snacks","Tostones","tostones-sweet.png","Tostones Maduros","Sin gluten"],
-["Bemar Snacks","Tostones","tostones-lime.png","Tostones con Limón","Sin gluten"],
-["Bemar Snacks","Tostones","tostones-garlic.png","Tostones con Ajo","Sin gluten"],
-["Bemar Snacks","Mezclas","trifongo.jpg","TriFongo Snacks","Plátano, yuca y chicharrón"],
-["Bemar Snacks","Mezclas","mofongo.jpg","Mofongo Party Mix","4 oz (113 g)"],
-["Bemar Snacks","Mezclas","sancocho.jpg","Sancocho Snacks","Limón picante y orégano"],
-["La Molienda","Comalitos","lm-comalito-cacahuate.jpg","Comalito de Cacahuate","3.5 oz (100 g)"],
-["La Molienda","Comalitos","lm-comalito-mixnut.jpg","Comalito Mixto","3.5 oz (100 g)"],
-["La Molienda","Comalitos","lm-comalito-coco.jpg","Comalito de Coco","3.5 oz (100 g)"],
-["La Molienda","Dulces tradicionales","lm-peanut-candy.jpg","Barra de Cacahuate","4.4 oz (125 g)"],
-["La Molienda","Dulces tradicionales","lm-mixnut-bar.jpg","Barra Mixnut","5 oz (142 g)"],
-["La Molienda","Dulces tradicionales","lm-coconut-candy.jpg","Cocada","4.8 oz (135 g)"],
-["La Molienda","Dulces tradicionales","lm-nuez.jpg","Barra de Nuez","Con nuez pecana"],
-["La Molienda","Dulces tradicionales","lm-rollo.jpg","Dulce en Rollo","Hecho en México"],
-["La Molienda","Dulces tradicionales","lm-guayaba.jpg","Rollos de Guayaba","Sencillo y con cajeta"],
-["La Molienda","Dulces tradicionales","lm-cacahuate-jumbo.jpg","Cacahuate Garapiñado Jumbo","Jumbo size"],
-["La Molienda","Botanas","lm-papas.jpg","Papas Chile y Jalapeño","6 oz (170 g)"],
-["Pelly","Snacks salados","pelly-jamon.jpg","Jamón Salados","1.5 oz (42 g)"],
-["Petit","Cajita","petit-mango-caja.png","Néctar de Mango","200 ml · 6.8 fl oz"],
-["Petit","Cajita","petit-pera-caja.png","Néctar de Pera","200 ml · 6.8 fl oz"],
-["Petit","Cajita","petit-pina-caja.png","Néctar de Piña","200 ml · 6.8 fl oz"],
-["Petit","Lata","petit-mango-lata.png","Néctar de Mango","330 ml · 11.2 fl oz"],
-["Petit","Lata","petit-durazno-lata.png","Néctar de Durazno","330 ml · 11.2 fl oz"],
-["Petit","Lata","petit-pera-lata.png","Néctar de Pera","330 ml · 11.2 fl oz"],
-["Petit","Lata","petit-pina-lata.png","Néctar de Piña","330 ml · 11.2 fl oz"],
-["Petit","Litro","petit-mango-1l.jpg","Néctar de Mango","1 L · 33.8 fl oz"],
-["Petit","Litro","petit-pina-1l.jpg","Néctar de Piña","1 L · 33.8 fl oz"],
-["Petit","Litro","petit-guayaba-1l.jpg","Néctar de Guayaba","1 L · 33.8 fl oz"],
-["Petit","Litro","petit-manzana-1l.jpg","Néctar de Manzana","1 L · 33.8 fl oz"],
-["Petit","Litro","petit-pera-1l.jpg","Néctar de Pera","1 L · 33.8 fl oz"],
-["Petit","Litro","petit-naranja-1l.jpg","Néctar de Naranja","1 L · 33.8 fl oz"],
-["Petit","Light","petit-durazno-light.jpg","Durazno Light","1 L · sin azúcar agregada"],
-["Petit","Light","petit-pera-light.jpg","Pera Light","1 L · sin azúcar agregada"]
+["Bemar Snacks","Chicharrones","bemar-chicharron-seasoned.webp","Chicharrón Sazonado","3 oz (85 g)"],
+["Bemar Snacks","Chicharrones","bemar-chicharron-chili-lime.webp","Chicharrón Chile y Limón","3 oz (85 g)"],
+["Bemar Snacks","Chicharrones","bemar-cracklin.webp","Pork Cracklin","3 oz (85 g)"],
+["Bemar Snacks","Plantain Chips","plantain-salted.webp","Platanitos Salados","2.5 oz"],
+["Bemar Snacks","Plantain Chips","plantain-sweet.webp","Platanitos Dulces","2.5 oz"],
+["Bemar Snacks","Plantain Chips","plantain-lime.webp","Platanitos con Limón","2.5 oz"],
+["Bemar Snacks","Plantain Chips","plantain-garlic.webp","Platanitos con Ajo","2.5 oz"],
+["Bemar Snacks","Tostones","tostones-salted.webp","Tostones Salados","Sin gluten"],
+["Bemar Snacks","Tostones","tostones-sweet.webp","Tostones Maduros","Sin gluten"],
+["Bemar Snacks","Tostones","tostones-lime.webp","Tostones con Limón","Sin gluten"],
+["Bemar Snacks","Tostones","tostones-garlic.webp","Tostones con Ajo","Sin gluten"],
+["Bemar Snacks","Mezclas","trifongo.webp","TriFongo Snacks","Plátano, yuca y chicharrón"],
+["Bemar Snacks","Mezclas","mofongo.webp","Mofongo Party Mix","4 oz (113 g)"],
+["Bemar Snacks","Mezclas","sancocho.webp","Sancocho Snacks","Limón picante y orégano"],
+["La Molienda","Comalitos","lm-comalito-cacahuate.webp","Comalito de Cacahuate","3.5 oz (100 g)"],
+["La Molienda","Comalitos","lm-comalito-mixnut.webp","Comalito Mixto","3.5 oz (100 g)"],
+["La Molienda","Comalitos","lm-comalito-coco.webp","Comalito de Coco","3.5 oz (100 g)"],
+["La Molienda","Dulces tradicionales","lm-peanut-candy.webp","Barra de Cacahuate","4.4 oz (125 g)"],
+["La Molienda","Dulces tradicionales","lm-mixnut-bar.webp","Barra Mixnut","5 oz (142 g)"],
+["La Molienda","Dulces tradicionales","lm-coconut-candy.webp","Cocada","4.8 oz (135 g)"],
+["La Molienda","Dulces tradicionales","lm-nuez.webp","Barra de Nuez","Con nuez pecana"],
+["La Molienda","Dulces tradicionales","lm-rollo.webp","Dulce en Rollo","Hecho en México"],
+["La Molienda","Dulces tradicionales","lm-guayaba.webp","Rollos de Guayaba","Sencillo y con cajeta"],
+["La Molienda","Dulces tradicionales","lm-cacahuate-jumbo.webp","Cacahuate Garapiñado Jumbo","Jumbo size"],
+["La Molienda","Botanas","lm-papas.webp","Papas Chile y Jalapeño","6 oz (170 g)"],
+["Pelly","Snacks salados","pelly-jamon.webp","Jamón Salados","1.5 oz (42 g)"],
+["Petit","Cajita","petit-mango-caja.webp","Néctar de Mango","200 ml · 6.8 fl oz"],
+["Petit","Cajita","petit-pera-caja.webp","Néctar de Pera","200 ml · 6.8 fl oz"],
+["Petit","Cajita","petit-pina-caja.webp","Néctar de Piña","200 ml · 6.8 fl oz"],
+["Petit","Lata","petit-mango-lata.webp","Néctar de Mango","330 ml · 11.2 fl oz"],
+["Petit","Lata","petit-durazno-lata.webp","Néctar de Durazno","330 ml · 11.2 fl oz"],
+["Petit","Lata","petit-pera-lata.webp","Néctar de Pera","330 ml · 11.2 fl oz"],
+["Petit","Lata","petit-pina-lata.webp","Néctar de Piña","330 ml · 11.2 fl oz"],
+["Petit","Litro","petit-mango-1l.webp","Néctar de Mango","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-pina-1l.webp","Néctar de Piña","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-guayaba-1l.webp","Néctar de Guayaba","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-manzana-1l.webp","Néctar de Manzana","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-pera-1l.webp","Néctar de Pera","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-naranja-1l.webp","Néctar de Naranja","1 L · 33.8 fl oz"],
+["Petit","Light","petit-durazno-light.webp","Durazno Light","1 L · sin azúcar agregada"],
+["Petit","Light","petit-pera-light.webp","Pera Light","1 L · sin azúcar agregada"]
 ];
-const PRICE={"pelly-jamon.jpg": "1.70", "bemar-chicharron-seasoned.jpg": "1.75", "bemar-chicharron-chili-lime.jpg": "1.75", "bemar-cracklin.jpg": "1.75", "plantain-salted.jpg": "0.99", "plantain-sweet.jpg": "0.99", "plantain-lime.jpg": "0.99", "plantain-garlic.jpg": "0.99", "tostones-salted.png": "1.75", "tostones-sweet.png": "1.75", "tostones-lime.png": "1.75", "tostones-garlic.png": "1.75", "trifongo.jpg": "1.75", "mofongo.jpg": "1.75", "sancocho.jpg": "1.75", "lm-comalito-cacahuate.jpg": "1.70", "lm-comalito-mixnut.jpg": "1.70", "lm-comalito-coco.jpg": "1.70", "lm-rollo.jpg": "1.70", "lm-mixnut-bar.jpg": "1.90", "lm-cacahuate-jumbo.jpg": "1.99", "petit-mango-lata.png": "0.98", "petit-durazno-lata.png": "0.98", "petit-pera-lata.png": "0.98", "petit-pina-lata.png": "0.98", "petit-mango-1l.jpg": "1.70", "petit-pina-1l.jpg": "1.70", "petit-guayaba-1l.jpg": "1.70", "petit-manzana-1l.jpg": "1.70", "petit-pera-1l.jpg": "1.70", "petit-naranja-1l.jpg": "1.70", "petit-durazno-light.jpg": "1.70", "petit-pera-light.jpg": "1.70"};
+const PRICE={"pelly-jamon.webp": "1.70", "bemar-chicharron-seasoned.webp": "1.75", "bemar-chicharron-chili-lime.webp": "1.75", "bemar-cracklin.webp": "1.75", "plantain-salted.webp": "0.99", "plantain-sweet.webp": "0.99", "plantain-lime.webp": "0.99", "plantain-garlic.webp": "0.99", "tostones-salted.webp": "1.75", "tostones-sweet.webp": "1.75", "tostones-lime.webp": "1.75", "tostones-garlic.webp": "1.75", "trifongo.webp": "1.75", "mofongo.webp": "1.75", "sancocho.webp": "1.75", "lm-comalito-cacahuate.webp": "1.70", "lm-comalito-mixnut.webp": "1.70", "lm-comalito-coco.webp": "1.70", "lm-rollo.webp": "1.70", "lm-mixnut-bar.webp": "1.90", "lm-cacahuate-jumbo.webp": "1.99", "petit-mango-lata.webp": "0.98", "petit-durazno-lata.webp": "0.98", "petit-pera-lata.webp": "0.98", "petit-pina-lata.webp": "0.98", "petit-mango-1l.webp": "1.70", "petit-pina-1l.webp": "1.70", "petit-guayaba-1l.webp": "1.70", "petit-manzana-1l.webp": "1.70", "petit-pera-1l.webp": "1.70", "petit-naranja-1l.webp": "1.70", "petit-durazno-light.webp": "1.70", "petit-pera-light.webp": "1.70"};
 const EN={"Todas": "All", "Chicharrones": "Pork Rinds", "Mezclas": "Mixes", "Comalitos": "Nut Patties", "Dulces tradicionales": "Traditional Candy", "Botanas": "Snacks", "Snacks salados": "Salty Snacks", "Cajita": "Box", "Lata": "Can", "Litro": "Liter", "Chicharrón Sazonado": "Seasoned Pork Rinds", "Chicharrón Chile y Limón": "Chili & Lime Pork Rinds", "Platanitos Salados": "Salted Plantain Chips", "Platanitos Dulces": "Sweet Plantain Chips", "Platanitos con Limón": "Lime Plantain Chips", "Platanitos con Ajo": "Garlic Plantain Chips", "Tostones Salados": "Salted Tostones", "Tostones Maduros": "Sweet Tostones (Maduro)", "Tostones con Limón": "Lime Tostones", "Tostones con Ajo": "Garlic Tostones", "Comalito de Cacahuate": "Peanut Patty", "Comalito Mixto": "Mixed Nut Patty", "Comalito de Coco": "Coconut Patty", "Barra de Cacahuate": "Peanut Candy Bar", "Barra Mixnut": "Mixnut Bar", "Cocada": "Coconut Candy", "Barra de Nuez": "Pecan Bar", "Dulce en Rollo": "Candy Roll", "Rollos de Guayaba": "Guava Rolls", "Cacahuate Garapiñado Jumbo": "Jumbo Caramel Peanuts", "Papas Chile y Jalapeño": "Chili & Jalapeño Potato Chips", "Jamón Salados": "Salty Ham Snacks", "Néctar de Mango": "Mango Nectar", "Néctar de Pera": "Pear Nectar", "Néctar de Piña": "Pineapple Nectar", "Néctar de Durazno": "Peach Nectar", "Néctar de Guayaba": "Guava Nectar", "Néctar de Manzana": "Apple Nectar", "Néctar de Naranja": "Orange Nectar", "Durazno Light": "Peach Light", "Pera Light": "Pear Light", "Sin gluten": "Gluten free", "Plátano, yuca y chicharrón": "Plantain, yuca & pork rinds", "Limón picante y orégano": "Spicy lime & oregano", "Con nuez pecana": "With pecans", "Hecho en México": "Made in Mexico", "Sencillo y con cajeta": "Plain & with caramel", "1 L · sin azúcar agregada": "1 L · no added sugar"};
 let L="es";
 try{const s=localStorage.getItem("ef-lang");if(s==="en"||s==="es")L=s;}catch(e){}
