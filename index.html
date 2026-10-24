@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Elite Food Distributor: Latin snacks, juices and candy distribution. Bemar Snacks, La Molienda, Pelly, Petit.">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Elite Food Distributor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,500;1,6..96,600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sitio corporativo de una sola página — cabecera fija, portada con bodegón de productos, marcas, servicios, catálogo filtrable, pasos y contacto. Look único claro: blanco con oro. */
+:root{
+  --bg:#ffffff;
+  --ivory:#fbf7ee;
+  --ink:#1f1b15;
+  --muted:#73685a;
+  --line:#ece3d1;
+  --gold:#a87a24;
+  --gold-d:#7f5b1d;
+  --gold-l:#e4cf9c;
+  --gold-grad:linear-gradient(100deg,#7a561a 0%,#c99a3e 34%,#a87a24 56%,#d8ad55 72%,#7f5b1d 100%);
+  --bemar:#c4161c; --pelly:#e2457a; --molienda:#8a4b23; --petit:#d42a2a;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.kick{font-size:.74rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.h2{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.h2 em{font-style:italic;font-weight:500;color:var(--gold)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:58ch;margin:0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--gold);transition:background .2s,color .2s,transform .2s}
+.btn-gold{background:var(--gold-grad);color:#fff;border-color:transparent;box-shadow:0 10px 24px -14px rgba(122,86,26,.8)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-line{color:var(--gold-d);background:#fff}
+.btn-line:hover{background:var(--ivory)}
+
+html[data-l="en"] .es{display:none!important}
+html:not([data-l="en"]) .en{display:none!important}
+.lang{display:inline-flex;border:1px solid var(--gold-l)}
+.lang button{font:inherit;font-size:.78rem;font-weight:700;letter-spacing:.12em;padding:7px 10px;border:0;background:#fff;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--gold);color:#fff}
+@media (max-width:860px){.lang{align-self:center;margin-top:14px}}
+/* Cabecera */
+.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mark{width:42px;height:42px;border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--gold-d);position:relative}
+.mark::after{content:"";position:absolute;inset:3px;border:.5px solid var(--gold-l)}
+.logo b{display:block;font-family:var(--display);font-weight:800;font-size:1.25rem;line-height:1}
+.logo small{display:block;font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-weight:500;font-size:.93rem;color:var(--ink);position:relative;padding-block:6px}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
+.nav a:hover::after{transform:scaleX(1)}
+.nav .btn{padding:10px 18px;font-size:.88rem}
+.nav .btn::after{display:none}
+.menu{display:none;background:none;border:1px solid var(--line);width:44px;height:44px;cursor:pointer;color:var(--ink)}
+.menu svg{width:22px;height:22px}
+@media (max-width:860px){
+  .menu{display:grid;place-items:center}
+  .nav{position:absolute;left:0;right:0;top:72px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px max(20px, env(safe-area-inset-right, 0px)) 18px max(20px, env(safe-area-inset-left, 0px));display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:14px;justify-content:center;padding:14px}
+}
+
+/* Portada */
+.hero{background:radial-gradient(60% 80% at 78% 40%,#fbf0d6 0%,rgba(255,255,255,0) 70%),var(--bg);border-bottom:1px solid var(--line);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-block:64px 72px}
+.hero-txt{display:grid;gap:22px;min-width:0}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;margin:0;letter-spacing:-.015em;text-wrap:balance}
+.hero h1 .hl{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin-top:14px;border-top:1px solid var(--line);padding-top:20px}
+.stats div{padding-right:28px;margin-right:28px;border-right:1px solid var(--line)}
+.stats div:last-child{border:0;margin:0;padding:0}
+.stats b{display:block;font-family:var(--display);font-weight:700;font-size:2rem;line-height:1;color:var(--gold-d);font-variant-numeric:tabular-nums}
+.stats span{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.stage{position:relative;aspect-ratio:1/0.92;max-width:100%;min-width:0}
+.stage::before{content:"";position:absolute;left:8%;right:8%;bottom:4%;height:9%;border-radius:50%;background:radial-gradient(closest-side,rgba(120,85,25,.28),transparent)}
+.stage img{position:absolute;object-fit:contain;filter:drop-shadow(0 16px 20px rgba(70,50,15,.25));background:#fff;border-radius:6px;transition:transform .5s ease}
+.stage img.s1{left:37%;top:2%;height:84%;z-index:5}
+.stage img.s2{left:10%;top:18%;height:62%;z-index:4;transform:rotate(-8deg)}
+.stage img.s3{left:63%;top:18%;height:62%;z-index:4;transform:rotate(8deg)}
+.stage img.s4{left:0%;top:50%;height:42%;z-index:6;transform:rotate(-12deg);background:transparent}
+.stage img.s5{left:76%;top:46%;height:44%;z-index:6;transform:rotate(10deg);background:transparent}
+.stage img.s6{left:33%;top:70%;height:28%;z-index:7;border-radius:50%;background:transparent}
+.stage:hover img.s2{transform:rotate(-11deg) translateY(-6px)}
+.stage:hover img.s3{transform:rotate(11deg) translateY(-6px)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 48px}.stage{max-width:520px;width:100%;margin:0 auto}}
+
+/* Franja de marcas */
+.strip{background:var(--ivory);border-bottom:1px solid var(--line)}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 48px;padding-block:22px}
+.strip span{font-family:var(--display);font-weight:700;font-size:1.35rem;color:var(--ink);opacity:.85}
+.strip i{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+section{scroll-margin-top:80px}
+.sec{padding-block:88px}
+.sec-head{display:grid;gap:14px;margin-bottom:44px;max-width:720px}
+
+/* Nosotros */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-img{position:relative;aspect-ratio:4/3.2;max-width:100%;background:var(--ivory);border:1px solid var(--line);overflow:hidden}
+.about-img img{position:absolute;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(60,40,10,.2));background:#fff;border-radius:4px}
+.about-img img.a1{left:8%;top:12%;height:70%}
+.about-img img.a2{left:38%;top:8%;height:56%;z-index:2}
+.about-img img.a3{left:62%;top:22%;height:66%}
+.about-img .tag{position:absolute;left:0;bottom:0;background:#fff;border-top:1px solid var(--line);border-right:1px solid var(--line);padding:14px 20px;font-family:var(--display);font-style:italic;font-size:1.05rem;color:var(--gold-d);z-index:3}
+.about-txt{display:grid;gap:18px;min-width:0}
+.about-txt p{margin:0;color:var(--muted)}
+.checks{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;font-weight:500}
+.checks svg{width:22px;height:22px;color:var(--gold);margin-top:2px}
+@media (max-width:860px){.about .wrap{grid-template-columns:1fr;gap:32px}}
+
+/* Servicios */
+.services{background:var(--ivory);border-block:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc article{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);padding:30px 28px;display:grid;gap:12px;align-content:start}
+.svc svg{width:34px;height:34px;color:var(--gold-d)}
+.svc h3{font-family:var(--display);font-weight:700;font-size:1.45rem;margin:4px 0 0;line-height:1.15}
+.svc p{margin:0;color:var(--muted)}
+@media (max-width:860px){.svc{grid-template-columns:1fr}}
+
+/* Marcas */
+.brands{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.brand{border:1px solid var(--line);background:#fff;text-decoration:none;display:flex;flex-direction:column;transition:border-color .25s,transform .25s,box-shadow .25s;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0}
+.brand:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(122,86,26,.55)}
+.brand .bimg{position:relative;aspect-ratio:1/0.82;background:var(--tint);border-bottom:1px solid var(--line);overflow:hidden;max-width:100%}
+.brand .bimg::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--a)}
+.brand .bimg img{position:absolute;bottom:10%;height:72%;width:auto;object-fit:contain;background:#fff;border-radius:4px;filter:drop-shadow(0 10px 14px rgba(60,40,10,.22))}
+.brand .bimg img:nth-child(1){left:50%;transform:translateX(-50%);z-index:2}
+.brand .bimg img:nth-child(2){left:8%;height:58%;transform:rotate(-7deg)}
+.brand .bimg img:nth-child(3){right:8%;height:58%;transform:rotate(7deg)}
+.brand .binfo{padding:20px 20px 22px;display:grid;gap:6px}
+.brand h3{font-family:var(--display);font-weight:800;font-size:1.55rem;margin:0;line-height:1.05}
+.brand p{margin:0;color:var(--muted);font-size:.92rem}
+.brand .more{margin-top:8px;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);display:flex;align-items:center;gap:8px}
+@media (max-width:980px){.brands{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.brands{grid-template-columns:1fr}}
+
+/* Productos */
+.products{background:linear-gradient(180deg,var(--ivory),#fff 280px);border-top:1px solid var(--line)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.tabs button{font:inherit;font-size:.88rem;font-weight:600;padding:10px 18px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .2s}
+.tabs button:hover{border-color:var(--gold-l)}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs button span{opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.pc{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.pc:hover{border-color:var(--gold-l);box-shadow:0 14px 28px -20px rgba(122,86,26,.5)}
+.pc figure{margin:0;position:relative;aspect-ratio:1/1;border-bottom:1px solid var(--line);max-width:100%;background:#fff}
+.pc figure img{position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:contain}
+.pc .bdot{position:absolute;left:10px;top:10px;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--a);padding:3px 8px}
+.pc .pi{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.pc .grp{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.pc h4{margin:0;font-family:var(--display);font-weight:700;font-size:1.12rem;line-height:1.2}
+.pc .sz{margin-top:auto;font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.pc .pz{display:flex;align-items:baseline;gap:6px;border-top:1px dashed var(--gold-l);padding-top:8px;margin-top:4px;font-size:.8rem;color:var(--muted)}
+.pc .pz b{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--gold-d);font-variant-numeric:tabular-nums}
+.cat-note{margin-top:26px;color:var(--muted);font-size:.92rem}
+
+/* Pasos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);counter-reset:s}
+.steps li{list-style:none;padding:34px 30px;display:grid;gap:10px;counter-increment:s;align-content:start}
+.steps li+li{border-left:1px solid var(--line)}
+.steps li::before{content:counter(s);width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--gold-d)}
+.steps h3{font-family:var(--display);font-size:1.4rem;margin:6px 0 0}
+.steps p{margin:0;color:var(--muted)}
+.steps-list{margin:0;padding:0}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.steps li+li{border-left:0;border-top:1px solid var(--line)}}
+
+/* Contacto */
+.contact{background:radial-gradient(60% 90% at 50% 100%,#fbf0d6 0%,rgba(255,255,255,0) 70%),var(--ivory);border-top:1px solid var(--line)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-txt{display:grid;gap:18px;min-width:0}
+.cards{display:grid;gap:14px}
+.cc{background:#fff;border:1px solid var(--line);padding:20px 22px;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center}
+.cc svg{width:44px;height:44px;padding:10px;border:1px solid var(--gold-l);color:var(--gold-d)}
+.cc small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.cc b{display:block;font-size:1.08rem;font-weight:600;user-select:all}
+.cc b.todo{color:var(--gold);font-weight:500;font-style:italic;user-select:auto}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);background:#fff}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-block:28px}
+footer p{margin:0;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Elite Food Distributor, inicio">
+      <span class="mark" aria-hidden="true">EF</span>
+      <span><b>Elite Food</b><small>Distributor</small></span>
+    </a>
+    <button class="menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="#nosotros"><span class="es">Nosotros</span><span class="en">About</span></a>
+      <a href="#servicios"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a href="#marcas"><span class="es">Marcas</span><span class="en">Brands</span></a>
+      <a href="#productos"><span class="es">Productos</span><span class="en">Products</span></a>
+      <a class="btn btn-gold" href="#contacto"><span class="es">Hágase cliente</span><span class="en">Become a customer</span></a>
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="kick"><span class="es">Distribuidor de productos latinos</span><span class="en">Latin food distributor</span></div>
+      <h1><span class="es">Las marcas latinas que sus clientes <span class="hl">buscan</span></span><span class="en">The Latin brands your customers <span class="hl">want</span></span></h1>
+      <p class="lead"><span class="es">Snacks, jugos y dulces latinos entregados en su tienda. Nosotros surtimos, acomodamos el exhibidor y le damos crédito por lo que se vence.</span><span class="en">Latin snacks, juices and candy delivered to your store. We restock, set up the display and give you credit for expired product.</span></p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#productos"><span class="es">Ver productos</span><span class="en">See products</span></a>
+        <a class="btn btn-line" href="#contacto"><span class="es">Hágase cliente</span><span class="en">Become a customer</span></a>
+      </div>
+      <div class="stats">
+        <div><b>41</b><span><span class="es">Productos</span><span class="en">Products</span></span></div>
+        <div><b>4</b><span><span class="es">Marcas</span><span class="en">Brands</span></span></div>
+        <div><b>100%</b><span><span class="es">Servicio completo</span><span class="en">Full service</span></span></div>
+      </div>
+    </div>
+    <div class="stage" aria-label="Productos de Bemar, Petit y La Molienda">
+      <img class="s1" src="img/petit-mango-1l.jpg" alt="Néctar Petit de mango, 1 litro">
+      <img class="s2" src="img/trifongo.jpg" alt="TriFongo Snacks de Bemar">
+      <img class="s3" src="img/mofongo.jpg" alt="Mofongo Party Mix de Bemar">
+      <img class="s4" src="img/petit-pina-caja.png" alt="Néctar Petit de piña en cajita">
+      <img class="s5" src="img/tostones-sweet.png" alt="Tostones maduros de Bemar">
+      <img class="s6" src="img/lm-comalito-coco.jpg" alt="Comalito de coco La Molienda">
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-label="Marcas que distribuimos">
+  <div class="wrap"><span>Bemar Snacks</span><i></i><span>La Molienda</span><i></i><span>Pelly</span><i></i><span>Petit</span></div>
+</div>
+
+<section class="sec about" id="nosotros">
+  <div class="wrap">
+    <div class="about-img">
+      <img class="a1" src="img/plantain-sweet.jpg" alt="Platanitos dulces Bemar">
+      <img class="a2" src="img/petit-guayaba-1l.jpg" alt="Néctar Petit de guayaba">
+      <img class="a3" src="img/bemar-chicharron-seasoned.jpg" alt="Chicharrón sazonado Bemar">
+      <div class="tag"><span class="es">Del almacén a su exhibidor</span><span class="en">From our warehouse to your shelf</span></div>
+    </div>
+    <div class="about-txt">
+      <div class="kick"><span class="es">Nosotros</span><span class="en">About us</span></div>
+      <h2 class="h2"><span class="es">Su socio en la ruta, <em>no solo un proveedor</em></span><span class="en">Your partner on the route, <em>not just a supplier</em></span></h2>
+      <p><span class="es">En Elite Food Distributor llevamos a su negocio los snacks, jugos y dulces latinos que más se venden. Visitamos su tienda en ruta fija, mantenemos el producto fresco y el exhibidor bien surtido.</span><span class="en">At Elite Food Distributor we bring your business the best-selling Latin snacks, juices and candy. We visit your store on a fixed route, keep the product fresh and the display fully stocked.</span></p>
+      <p><span class="es">Usted se dedica a vender. Nosotros nos encargamos del resto.</span><span class="en">You focus on selling. We take care of the rest.</span></p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="es">Entrega en su tienda, en ruta fija</span><span class="en">Delivery to your store on a fixed route</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="es">Displays para nuestros productos</span><span class="en">Displays for our products</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="es">Crédito por producto vencido</span><span class="en">Credit for expired product</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec services" id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick"><span class="es">Servicios</span><span class="en">Services</span></div>
+      <h2 class="h2"><span class="es">Distribución de servicio completo</span><span class="en">Full-service distribution</span></h2>
+      <p class="lead"><span class="es">Tres cosas que hacemos en cada visita para que su tienda nunca se quede sin producto.</span><span class="en">Three things we do on every visit so your store never runs out.</span></p>
+    </div>
+    <div class="svc">
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+        <h3><span class="es">Distribución completa</span><span class="en">Full distribution</span></h3>
+        <p><span class="es">Llevamos el pedido directo a su tienda, en ruta fija y a tiempo. Sin que usted tenga que ir a buscar nada.</span><span class="en">We bring your order straight to your store, on a fixed route and on time. You never have to go pick anything up.</span></p>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v4H4zM4 10h16v4H4zM4 16h16v4H4z"/></svg>
+        <h3><span class="es">Displays y merchandising</span><span class="en">Displays &amp; merchandising</span></h3>
+        <p><span class="es">Tenemos displays para nuestros productos. Los surtimos y organizamos para que el producto se vea bien y se venda más.</span><span class="en">We have displays for our products. We stock and organize them so the product looks great and sells more.</span></p>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 8v4l3 2"/></svg>
+        <h3><span class="es">Crédito por vencidos</span><span class="en">Credit for expired product</span></h3>
+        <p><span class="es">Si un producto se vence en su tienda, le damos crédito. Usted no pierde dinero.</span><span class="en">If a product expires in your store, we give you credit. You don't lose money.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="marcas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick"><span class="es">Nuestras marcas</span><span class="en">Our brands</span></div>
+      <h2 class="h2"><span class="es">Cuatro marcas, <em>un solo distribuidor</em></span><span class="en">Four brands, <em>one distributor</em></span></h2>
+    </div>
+    <div class="brands">
+      <button class="brand" data-go="Bemar Snacks" style="--a:var(--bemar);--tint:#fdf1ee">
+        <div class="bimg"><img src="img/trifongo.jpg" alt=""><img src="img/plantain-lime.jpg" alt=""><img src="img/bemar-chicharron-chili-lime.jpg" alt=""></div>
+        <div class="binfo"><h3>Bemar Snacks</h3><p><span class="es">Platanitos, tostones, chicharrones y mezclas.</span><span class="en">Plantain chips, tostones, pork rinds and mixes.</span></p><span class="more"><span class="es">14 productos →</span><span class="en">14 products →</span></span></div>
+      </button>
+      <button class="brand" data-go="La Molienda" style="--a:var(--molienda);--tint:#fbf3ea">
+        <div class="bimg"><img src="img/lm-comalito-cacahuate.jpg" alt=""><img src="img/lm-comalito-coco.jpg" alt=""><img src="img/lm-comalito-mixnut.jpg" alt=""></div>
+        <div class="binfo"><h3>La Molienda</h3><p><span class="es">Comalitos, cocadas y dulces tradicionales mexicanos.</span><span class="en">Nut patties, coconut candy and traditional Mexican sweets.</span></p><span class="more"><span class="es">11 productos →</span><span class="en">11 products →</span></span></div>
+      </button>
+      <button class="brand" data-go="Pelly" style="--a:var(--pelly);--tint:#fdf0f4">
+        <div class="bimg"><img src="img/pelly-jamon.jpg" alt=""></div>
+        <div class="binfo"><h3>Pelly</h3><p><span class="es">Snacks salados sabor a jamón.</span><span class="en">Salty ham-flavored snacks.</span></p><span class="more"><span class="es">1 producto →</span><span class="en">1 product →</span></span></div>
+      </button>
+      <button class="brand" data-go="Petit" style="--a:var(--petit);--tint:#fef3ef">
+        <div class="bimg"><img src="img/petit-mango-1l.jpg" alt=""><img src="img/petit-pina-caja.png" alt=""><img src="img/petit-durazno-lata.png" alt=""></div>
+        <div class="binfo"><h3>Petit</h3><p><span class="es">Néctares con vitamina C en cajita, lata y litro.</span><span class="en">Nectars with vitamin C in box, can and liter.</span></p><span class="more"><span class="es">15 productos →</span><span class="en">15 products →</span></span></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="sec products" id="productos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick"><span class="es">Productos</span><span class="en">Products</span></div>
+      <h2 class="h2"><span class="es">Nuestro catálogo</span><span class="en">Our catalog</span></h2>
+      <p class="lead"><span class="es">Escoja una marca para ver sus productos. Precios por unidad. Pregunte a su vendedor por las unidades por caja.</span><span class="en">Pick a brand to see its products. Prices are per unit. Ask your sales rep for units per case.</span></p>
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Filtrar por marca"></div>
+    <div class="grid" id="grid"></div>
+    <p class="cat-note"><span class="es">Precios y disponibilidad sujetos a cambio.</span><span class="en">Prices and availability subject to change.</span></p>
+  </div>
+</section>
+
+<section class="sec" id="como">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick"><span class="es">Cómo trabajamos</span><span class="en">How it works</span></div>
+      <h2 class="h2"><span class="es">Empezar es <em>así de fácil</em></span><span class="en">Getting started is <em>this easy</em></span></h2>
+    </div>
+    <ol class="steps steps-list">
+      <li><h3><span class="es">Escoja</span><span class="en">Choose</span></h3><p><span class="es">Vea el catálogo y marque los productos que quiere en su tienda.</span><span class="en">Browse the catalog and pick the products you want in your store.</span></p></li>
+      <li><h3><span class="es">Hable con nosotros</span><span class="en">Talk to us</span></h3><p><span class="es">Su vendedor toma el pedido por caja y le asigna un día de ruta.</span><span class="en">Your sales rep takes your order by the case and sets your route day.</span></p></li>
+      <li><h3><span class="es">Reciba</span><span class="en">Receive</span></h3><p><span class="es">Entregamos, acomodamos el exhibidor y le damos crédito por lo vencido.</span><span class="en">We deliver, set up the display and give you credit for expired product.</span></p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec contact" id="contacto">
+  <div class="wrap">
+    <div class="contact-txt">
+      <div class="kick"><span class="es">Contacto</span><span class="en">Contact</span></div>
+      <h2 class="h2"><span class="es">¿Quiere tener nuestros productos <em>en su tienda?</em></span><span class="en">Want our products <em>in your store?</em></span></h2>
+      <p class="lead"><span class="es">Llámenos o escríbanos. Un vendedor de Elite Food lo visita, le enseña el catálogo y le arma su primer pedido.</span><span class="en">Call or message us. An Elite Food sales rep will visit you, show you the catalog and put together your first order.</span></p>
+      <div class="hero-cta"><a class="btn btn-gold" href="#productos"><span class="es">Ver productos</span><span class="en">See products</span></a><a class="btn btn-line" href="catalogo-elite-food.pdf" target="_blank" rel="noopener"><span class="es">Catálogo PDF (Español)</span><span class="en">PDF Catalog (Spanish)</span></a><a class="btn btn-line" href="catalog-elite-food-en.pdf" target="_blank" rel="noopener"><span class="es">Catálogo PDF (Inglés)</span><span class="en">PDF Catalog (English)</span></a></div>
+    </div>
+    <div class="cards">
+      <div class="cc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        <div><small><span class="es">Teléfono y WhatsApp</span><span class="en">Phone &amp; WhatsApp</span></small><b class="todo"><span class="es">Número por agregar</span><span class="en">Number coming soon</span></b></div>
+      </div>
+      <div class="cc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+        <div><small><span class="es">Correo</span><span class="en">Email</span></small><b class="todo"><span class="es">Correo por agregar</span><span class="en">Email coming soon</span></b></div>
+      </div>
+      <div class="cc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><small><span class="es">Horario de oficina</span><span class="en">Office hours</span></small><b class="todo"><span class="es">Horario por agregar</span><span class="en">Hours coming soon</span></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#inicio"><span class="mark" aria-hidden="true">EF</span><span><b>Elite Food</b><small>Distributor</small></span></a>
+    <p>Bemar Snacks · La Molienda · Pelly · Petit</p>
+    <p>© 2026 Elite Food Distributor</p>
+  </div>
+</footer>
+
+<script>
+const P=[
+["Bemar Snacks","Chicharrones","bemar-chicharron-seasoned.jpg","Chicharrón Sazonado","3 oz (85 g)"],
+["Bemar Snacks","Chicharrones","bemar-chicharron-chili-lime.jpg","Chicharrón Chile y Limón","3 oz (85 g)"],
+["Bemar Snacks","Chicharrones","bemar-cracklin.jpg","Pork Cracklin","3 oz (85 g)"],
+["Bemar Snacks","Plantain Chips","plantain-salted.jpg","Platanitos Salados","2.5 oz"],
+["Bemar Snacks","Plantain Chips","plantain-sweet.jpg","Platanitos Dulces","2.5 oz"],
+["Bemar Snacks","Plantain Chips","plantain-lime.jpg","Platanitos con Limón","2.5 oz"],
+["Bemar Snacks","Plantain Chips","plantain-garlic.jpg","Platanitos con Ajo","2.5 oz"],
+["Bemar Snacks","Tostones","tostones-salted.png","Tostones Salados","Sin gluten"],
+["Bemar Snacks","Tostones","tostones-sweet.png","Tostones Maduros","Sin gluten"],
+["Bemar Snacks","Tostones","tostones-lime.png","Tostones con Limón","Sin gluten"],
+["Bemar Snacks","Tostones","tostones-garlic.png","Tostones con Ajo","Sin gluten"],
+["Bemar Snacks","Mezclas","trifongo.jpg","TriFongo Snacks","Plátano, yuca y chicharrón"],
+["Bemar Snacks","Mezclas","mofongo.jpg","Mofongo Party Mix","4 oz (113 g)"],
+["Bemar Snacks","Mezclas","sancocho.jpg","Sancocho Snacks","Limón picante y orégano"],
+["La Molienda","Comalitos","lm-comalito-cacahuate.jpg","Comalito de Cacahuate","3.5 oz (100 g)"],
+["La Molienda","Comalitos","lm-comalito-mixnut.jpg","Comalito Mixto","3.5 oz (100 g)"],
+["La Molienda","Comalitos","lm-comalito-coco.jpg","Comalito de Coco","3.5 oz (100 g)"],
+["La Molienda","Dulces tradicionales","lm-peanut-candy.jpg","Barra de Cacahuate","4.4 oz (125 g)"],
+["La Molienda","Dulces tradicionales","lm-mixnut-bar.jpg","Barra Mixnut","5 oz (142 g)"],
+["La Molienda","Dulces tradicionales","lm-coconut-candy.jpg","Cocada","4.8 oz (135 g)"],
+["La Molienda","Dulces tradicionales","lm-nuez.jpg","Barra de Nuez","Con nuez pecana"],
+["La Molienda","Dulces tradicionales","lm-rollo.jpg","Dulce en Rollo","Hecho en México"],
+["La Molienda","Dulces tradicionales","lm-guayaba.jpg","Rollos de Guayaba","Sencillo y con cajeta"],
+["La Molienda","Dulces tradicionales","lm-cacahuate-jumbo.jpg","Cacahuate Garapiñado Jumbo","Jumbo size"],
+["La Molienda","Botanas","lm-papas.jpg","Papas Chile y Jalapeño","6 oz (170 g)"],
+["Pelly","Snacks salados","pelly-jamon.jpg","Jamón Salados","1.5 oz (42 g)"],
+["Petit","Cajita","petit-mango-caja.png","Néctar de Mango","200 ml · 6.8 fl oz"],
+["Petit","Cajita","petit-pera-caja.png","Néctar de Pera","200 ml · 6.8 fl oz"],
+["Petit","Cajita","petit-pina-caja.png","Néctar de Piña","200 ml · 6.8 fl oz"],
+["Petit","Lata","petit-mango-lata.png","Néctar de Mango","330 ml · 11.2 fl oz"],
+["Petit","Lata","petit-durazno-lata.png","Néctar de Durazno","330 ml · 11.2 fl oz"],
+["Petit","Lata","petit-pera-lata.png","Néctar de Pera","330 ml · 11.2 fl oz"],
+["Petit","Lata","petit-pina-lata.png","Néctar de Piña","330 ml · 11.2 fl oz"],
+["Petit","Litro","petit-mango-1l.jpg","Néctar de Mango","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-pina-1l.jpg","Néctar de Piña","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-guayaba-1l.jpg","Néctar de Guayaba","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-manzana-1l.jpg","Néctar de Manzana","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-pera-1l.jpg","Néctar de Pera","1 L · 33.8 fl oz"],
+["Petit","Litro","petit-naranja-1l.jpg","Néctar de Naranja","1 L · 33.8 fl oz"],
+["Petit","Light","petit-durazno-light.jpg","Durazno Light","1 L · sin azúcar agregada"],
+["Petit","Light","petit-pera-light.jpg","Pera Light","1 L · sin azúcar agregada"]
+];
+const PRICE={"pelly-jamon.jpg": "1.70", "bemar-chicharron-seasoned.jpg": "1.75", "bemar-chicharron-chili-lime.jpg": "1.75", "bemar-cracklin.jpg": "1.75", "plantain-salted.jpg": "0.99", "plantain-sweet.jpg": "0.99", "plantain-lime.jpg": "0.99", "plantain-garlic.jpg": "0.99", "tostones-salted.png": "1.75", "tostones-sweet.png": "1.75", "tostones-lime.png": "1.75", "tostones-garlic.png": "1.75", "trifongo.jpg": "1.75", "mofongo.jpg": "1.75", "sancocho.jpg": "1.75", "lm-comalito-cacahuate.jpg": "1.70", "lm-comalito-mixnut.jpg": "1.70", "lm-comalito-coco.jpg": "1.70", "lm-rollo.jpg": "1.70", "lm-mixnut-bar.jpg": "1.90", "lm-cacahuate-jumbo.jpg": "1.99", "petit-mango-lata.png": "0.98", "petit-durazno-lata.png": "0.98", "petit-pera-lata.png": "0.98", "petit-pina-lata.png": "0.98", "petit-mango-1l.jpg": "1.70", "petit-pina-1l.jpg": "1.70", "petit-guayaba-1l.jpg": "1.70", "petit-manzana-1l.jpg": "1.70", "petit-pera-1l.jpg": "1.70", "petit-naranja-1l.jpg": "1.70", "petit-durazno-light.jpg": "1.70", "petit-pera-light.jpg": "1.70"};
+const EN={"Todas": "All", "Chicharrones": "Pork Rinds", "Mezclas": "Mixes", "Comalitos": "Nut Patties", "Dulces tradicionales": "Traditional Candy", "Botanas": "Snacks", "Snacks salados": "Salty Snacks", "Cajita": "Box", "Lata": "Can", "Litro": "Liter", "Chicharrón Sazonado": "Seasoned Pork Rinds", "Chicharrón Chile y Limón": "Chili & Lime Pork Rinds", "Platanitos Salados": "Salted Plantain Chips", "Platanitos Dulces": "Sweet Plantain Chips", "Platanitos con Limón": "Lime Plantain Chips", "Platanitos con Ajo": "Garlic Plantain Chips", "Tostones Salados": "Salted Tostones", "Tostones Maduros": "Sweet Tostones (Maduro)", "Tostones con Limón": "Lime Tostones", "Tostones con Ajo": "Garlic Tostones", "Comalito de Cacahuate": "Peanut Patty", "Comalito Mixto": "Mixed Nut Patty", "Comalito de Coco": "Coconut Patty", "Barra de Cacahuate": "Peanut Candy Bar", "Barra Mixnut": "Mixnut Bar", "Cocada": "Coconut Candy", "Barra de Nuez": "Pecan Bar", "Dulce en Rollo": "Candy Roll", "Rollos de Guayaba": "Guava Rolls", "Cacahuate Garapiñado Jumbo": "Jumbo Caramel Peanuts", "Papas Chile y Jalapeño": "Chili & Jalapeño Potato Chips", "Jamón Salados": "Salty Ham Snacks", "Néctar de Mango": "Mango Nectar", "Néctar de Pera": "Pear Nectar", "Néctar de Piña": "Pineapple Nectar", "Néctar de Durazno": "Peach Nectar", "Néctar de Guayaba": "Guava Nectar", "Néctar de Manzana": "Apple Nectar", "Néctar de Naranja": "Orange Nectar", "Durazno Light": "Peach Light", "Pera Light": "Pear Light", "Sin gluten": "Gluten free", "Plátano, yuca y chicharrón": "Plantain, yuca & pork rinds", "Limón picante y orégano": "Spicy lime & oregano", "Con nuez pecana": "With pecans", "Hecho en México": "Made in Mexico", "Sencillo y con cajeta": "Plain & with caramel", "1 L · sin azúcar agregada": "1 L · no added sugar"};
+let L="es";
+try{const s=localStorage.getItem("ef-lang");if(s==="en"||s==="es")L=s;}catch(e){}
+const tr=s=>L==="en"&&EN[s]?EN[s]:s;
+const COLOR={"Bemar Snacks":"var(--bemar)","La Molienda":"var(--molienda)","Pelly":"var(--pelly)","Petit":"var(--petit)"};
+const BRANDS=["Todas","Bemar Snacks","La Molienda","Pelly","Petit"];
+const tabs=document.getElementById('tabs'), grid=document.getElementById('grid');
+let current="Todas";
+try{const s=localStorage.getItem('ef-tab'); if(BRANDS.includes(s)) current=s;}catch(e){}
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function render(){
+  tabs.innerHTML=BRANDS.map(b=>{const n=b==="Todas"?P.length:P.filter(p=>p[0]===b).length;
+    return `<button type="button" data-b="${esc(b)}" aria-pressed="${b===current}">${esc(tr(b))}<span>${n}</span></button>`}).join('');
+  const list=current==="Todas"?P:P.filter(p=>p[0]===current);
+  grid.innerHTML=list.map(p=>`<article class="pc" style="--a:${COLOR[p[0]]}"><figure><img src="img/${p[2]}" alt="${esc(tr(p[3]))}" loading="lazy"><span class="bdot">${esc(p[0])}</span></figure><div class="pi"><span class="grp">${esc(tr(p[1]))}</span><h4>${esc(tr(p[3]))}</h4><span class="sz">${esc(tr(p[4]))}</span><span class="pz">${PRICE[p[2]]?`<b>$${PRICE[p[2]]}</b> ${L==="en"?"each":"c/u"}`:(L==="en"?"Price: ask us":"Precio: consultar")}</span></div></article>`).join('');
+}
+tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;current=b.dataset.b;try{localStorage.setItem('ef-tab',current)}catch(e){}render();});
+document.querySelectorAll('.brand').forEach(el=>el.addEventListener('click',()=>{current=el.dataset.go;render();document.getElementById('productos').scrollIntoView();}));
+function setLang(l){L=l;document.documentElement.dataset.l=l;document.documentElement.lang=l;
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
+  try{localStorage.setItem('ef-lang',l)}catch(e){}
+  render();}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+setLang(L);
+const btn=document.getElementById('menuBtn'), nav=document.getElementById('nav');
+btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});
+nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
+</script>
+
+</body>
+</html>
