@@ -13,9 +13,9 @@ head='''<!doctype html>
 '''
 i=h.index('</style>')+len('</style>')
 doc=(head+h[:i]+'\n</head>\n<body>\n'+h[i:]+'\n</body>\n</html>\n').replace('<meta name="claude:viewport-fit-sides" content="cover">\n','')
-old='<div class="hero-cta"><a class="btn btn-gold" href="#productos">'
+old='<div class="hero-cta"><a class="btn btn-gold" href="tel:+13059421118">'
 k=doc.rindex(old); j=doc.index('</div>',k)
-new='<div class="hero-cta"><a class="btn btn-gold" href="#productos"><span class="es">Ver productos</span><span class="en">See products</span></a><a class="btn btn-line" href="catalogo-elite-food.pdf" target="_blank" rel="noopener"><span class="es">Catálogo PDF (Español)</span><span class="en">PDF Catalog (Spanish)</span></a><a class="btn btn-line" href="catalog-elite-food-en.pdf" target="_blank" rel="noopener"><span class="es">Catálogo PDF (Inglés)</span><span class="en">PDF Catalog (English)</span></a></div>'
+new='<div class="hero-cta"><a class="btn btn-gold" href="tel:+13059421118"><span class="es">Llamar ahora</span><span class="en">Call now</span></a><a class="btn btn-line" href="#productos"><span class="es">Ver productos</span><span class="en">See products</span></a><a class="btn btn-line" href="catalogo-elite-food.pdf" target="_blank" rel="noopener"><span class="es">Catálogo PDF (Español)</span><span class="en">PDF Catalog (Spanish)</span></a><a class="btn btn-line" href="catalog-elite-food-en.pdf" target="_blank" rel="noopener"><span class="es">Catálogo PDF (Inglés)</span><span class="en">PDF Catalog (English)</span></a></div>'
 doc=doc[:k]+new+doc[j+6:]
 import time
 CACHEV=str(int(time.time()))
