@@ -20,7 +20,7 @@ doc=doc[:k]+new+doc[j+6:]
 open(os.path.join(REPO,'index.html'),'w').write(doc)
 shutil.rmtree(os.path.join(REPO,'img'),ignore_errors=True); os.makedirs(os.path.join(REPO,'img'))
 import re
-for f in sorted(set(re.findall(r'img/([A-Za-z0-9._-]+)',doc))):
+for f in sorted(set(re.findall(r'img/([A-Za-z0-9._-]+)',doc))|set(re.findall(r'"([A-Za-z0-9_-]+\.webp)"',doc))):
     shutil.copy(os.path.join('/home/claude/elite-web/img',f),os.path.join(REPO,'img',f))
 shutil.copy('/home/claude/catalogo/Catalogo-Elite-Food.pdf',os.path.join(REPO,'catalogo-elite-food.pdf'))
 shutil.copy('/home/claude/catalogo/Catalog-Elite-Food-EN.pdf',os.path.join(REPO,'catalog-elite-food-en.pdf'))
